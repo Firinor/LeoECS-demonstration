@@ -119,7 +119,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7772957979164587185}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c9764f3d89c1de4e9c6ef0c1b3687c0, type: 3}
   m_Name: 
@@ -127,3 +127,4 @@ MonoBehaviour:
   FireboltPrefab: {fileID: 4678573054909624986, guid: 3f49f4597f793fb408e0a060efc62dfb, type: 3}
   EnemyTag: BlueTeam
   castPoint: {fileID: 6991086443029623548}
+  Attack: 5

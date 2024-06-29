@@ -1,30 +1,67 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class Fireball : MonoBehaviour
+namespace OLD
 {
-    public RectTransform target;
-    public float explosionRadius;
-    public RectTransform currentRect;
-
-    private static float acceleration = .35f;
-
-    [SerializeField] Explosion explosionPrefab;
-    private float speed;
-
-    public void Update()
+    public class Fireball : MonoBehaviour
     {
-        speed += acceleration * Time.deltaTime;
+        public RectTransform Target;
+        public float ExplosionRadius;
+        public int Attack;
+        public RectTransform CurrentRect;
 
-        Vector2 direction = target.position - currentRect.position;
+        private static float acceleration = .75f;
 
-        Vector2 delta = direction.normalized * speed;
+        [SerializeField] Explosion ExplosionPrefab;
+        private float speed;
 
-        currentRect.anchoredPosition += delta;
-
-        if (direction.magnitude < delta.magnitude)
+        public void Update()
         {
-            Instantiate(explosionPrefab, target.position, Quaternion.identity, BattleManager.BulletsParent).Radius = explosionRadius;
-            Destroy(gameObject, 0.1f);
+            speed += acceleration * Time.deltaTime;
+
+            Vector2 direction = Target.position - CurrentRect.position;
+
+            Vector2 delta = direction.normalized * speed;
+
+            CurrentRect.anchoredPosition += delta;
+
+            if (direction.magnitude * 100 >= delta.magnitude)
+                return;
+
+            Explosion explosion = Instantiate(ExplosionPrefab, Target.position, Quaternion.identity, BattleManager.BulletsParent);
+            explosion.Radius = ExplosionRadius;
+            DoAttack();
+            Destroy(gameObject);
+        }
+
+        private void DoAttack()
+        {
+            Mage[] mages = FindEnemy();
+
+            if (mages == null)
+                return;
+
+            if (Target.tag == "RedTeam")
+                BattleManager.inctance.BlueScore += mages.Length * Attack;
+            else if (Target.tag == "BlueTeam")
+                BattleManager.inctance.RedScore += mages.Length * Attack;
+        }
+
+        private Mage[] FindEnemy()
+        {
+            List<Mage> result = new();
+
+            RectTransform targetParent = (RectTransform)Target.parent;
+
+            for (int i = 0; i < targetParent.childCount; i++)
+            {
+                RectTransform targetMage = (RectTransform)targetParent.GetChild(i);
+
+                if (Vector2.Distance(targetMage.anchoredPosition, Target.anchoredPosition) <= ExplosionRadius)
+                    result.Add(targetMage.GetComponent<Mage>());
+            }
+
+            return result.ToArray();
         }
     }
 }

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 45dfd5eea36eb0b4fadae9e418d751be
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - RedMagePrefab: {instanceID: 0}
+  - BlueMagePrefab: {instanceID: 0}
+  - FireballPrefab: {instanceID: 0}
+  - ExplosionPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

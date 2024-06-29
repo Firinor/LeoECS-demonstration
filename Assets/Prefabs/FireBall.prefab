@@ -83,12 +83,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2513048137788201999}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd9c76f1de63cb446ab2bfd94cdd6af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  explosionRadius: 0
-  currentRect: {fileID: 2822310722867831777}
-  explosionPrefab: {fileID: 4941102077702117949, guid: 60f0c0135d2cb724690ab4e31c1951e5, type: 3}
+  Target: {fileID: 0}
+  ExplosionRadius: 0
+  Attack: 0
+  CurrentRect: {fileID: 2822310722867831777}
+  ExplosionPrefab: {fileID: 4941102077702117949, guid: 60f0c0135d2cb724690ab4e31c1951e5, type: 3}

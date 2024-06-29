@@ -1,29 +1,32 @@
 ﻿using UnityEngine;
 
-public class Explosion : MonoBehaviour
+namespace OLD
 {
-    public float Radius;
-    public RectTransform rectTransform;
-
-    private float currentRadius;
-    private static float explosionSpeed = 350f;
-    private bool isExpansion = true;
-
-    private void Update()
+    public class Explosion : MonoBehaviour
     {
-        if (isExpansion)
-        {
-            currentRadius += explosionSpeed * Time.deltaTime;
-            if(currentRadius >= Radius)
-                isExpansion = false;
-        }
-        else
-        {
-            currentRadius -= explosionSpeed * Time.deltaTime;
-            if (currentRadius <= 0)
-                Destroy(gameObject);
-        }
+        public float Radius;
+        public RectTransform RectTransform;
 
-        rectTransform.sizeDelta = new Vector2(currentRadius, currentRadius);
+        private float currentRadius;
+        private static float explosionSpeed = 1350f;
+        private bool isExpansion = true;
+
+        private void Update()
+        {
+            if (isExpansion)
+            {
+                currentRadius += explosionSpeed * Time.deltaTime;
+                if (currentRadius >= Radius)
+                    isExpansion = false;
+            }
+            else
+            {
+                currentRadius -= explosionSpeed * Time.deltaTime;
+                if (currentRadius <= 0)
+                    Destroy(gameObject);
+            }
+
+            RectTransform.sizeDelta = new Vector2(currentRadius, currentRadius);
+        }
     }
 }
