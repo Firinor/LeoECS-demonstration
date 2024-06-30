@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c30fdf50d494194e99f15ad425da134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs: {fileID: 160685277}
+  config: {fileID: 160685277}
 --- !u!114 &160685277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,13 +181,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45dfd5eea36eb0b4fadae9e418d751be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MageCount: 10
+  MageCount: 200
   RedMagePrefab: {fileID: 7259845685248562727, guid: 9bd347cdc72e744459c270e8a3762617, type: 3}
   BlueMagePrefab: {fileID: 626237419157234727, guid: f7f19897231a8bf4fa6221a9e9cd28ad, type: 3}
   blueTeam: {fileID: 1821781158}
   redTeam: {fileID: 1075717691}
   FireballPrefab: {fileID: 2822310722867831777, guid: 3f49f4597f793fb408e0a060efc62dfb, type: 3}
   ExplosionPrefab: {fileID: 3059952058063031953, guid: 60f0c0135d2cb724690ab4e31c1951e5, type: 3}
+  BulletsParent: {fileID: 1726437280}
+  BlueTeamScoreUI: {fileID: 549716282}
+  RedTeamScoreUI: {fileID: 328185688}
 --- !u!1 &328185686
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +201,6 @@ GameObject:
   m_Component:
   - component: {fileID: 328185687}
   - component: {fileID: 328185689}
-  - component: {fileID: 328185690}
   - component: {fileID: 328185688}
   m_Layer: 5
   m_Name: RedScore
@@ -323,20 +325,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328185686}
   m_CullTransparentMesh: 1
---- !u!114 &328185690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328185686}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88d81c12cd4e17c438af615a584c1478, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 328185688}
-  RedTeam: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +427,6 @@ GameObject:
   m_Component:
   - component: {fileID: 549716281}
   - component: {fileID: 549716283}
-  - component: {fileID: 549716284}
   - component: {fileID: 549716282}
   m_Layer: 5
   m_Name: BlueScore
@@ -564,20 +551,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549716280}
   m_CullTransparentMesh: 1
---- !u!114 &549716284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549716280}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88d81c12cd4e17c438af615a584c1478, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 549716282}
-  RedTeam: 0
 --- !u!1 &1075717690
 GameObject:
   m_ObjectHideFlags: 0

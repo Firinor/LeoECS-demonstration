@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace LeoECS
@@ -14,5 +15,10 @@ namespace LeoECS
 
         public RectTransform FireballPrefab;
         public RectTransform ExplosionPrefab;
+
+        public RectTransform BulletsParent;
+
+        public TextMeshProUGUI BlueTeamScoreUI;
+        public TextMeshProUGUI RedTeamScoreUI;
     }
 }

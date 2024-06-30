@@ -1,104 +1,57 @@
 using Leopotam.EcsLite;
-using UnityEditor;
 using UnityEngine;
 
 namespace LeoECS
 {
-    namespace Client
+    sealed class EcsStartup : MonoBehaviour
     {
-        sealed class EcsStartup : MonoBehaviour
+        EcsWorld _world;
+        IEcsSystems _systems;
+
+        [SerializeField] private BattleConfig config;
+
+        void Start()
         {
-            EcsWorld _world;
-            IEcsSystems _systems;
+            _world = new EcsWorld();
+            _systems = new EcsSystems(_world, config);
+            _systems
+                .Add(new MageInitialize())
+                .Add(new MageCastFireball())
+                .Add(new MageCooldownSystem())
 
-            [SerializeField] private BattleConfig prefabs;
+                .Add(new FireballMove())
+                .Add(new FireballExplosion())
 
-            void Start()
-            {
-                _world = new EcsWorld();
-                _systems = new EcsSystems(_world, prefabs);
-                _systems
-                    .Add(new MageInitialize())
-                    .Add(new MageCastFireball())
-                    .Add(new MageCooldown())
+                .Add(new ExplosionRadius())
 
-                    .Add(new FireballMove())
-                    .Add(new FireballExplosion())
+                .Add(new TeamScoreSystem())
 
-                    .Add(new ExplosionRadius())
-
-                    .Add(new TeamScore())
+                .Add(new UISystem())
 #if UNITY_EDITOR
-                    .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
+                .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif
-                    .Init();
-            }
+                .Init();
 
-            void Update()
-            {
-                _systems?.Run();
-            }
-            void OnDestroy()
-            {
-                if (_systems != null)
-                {
-                    _systems.Destroy();
-                    _systems = null;
-                }
-
-                if (_world != null)
-                {
-                    _world.Destroy();
-                    _world = null;
-                }
-            }
+            Destroy(config);
+            config = null;
         }
 
-        public class TeamScore : IEcsRunSystem
+        void Update()
         {
-            public void Run(IEcsSystems systems)
-            {
-
-            }
+            _systems?.Run();
         }
-
-        public class ExplosionRadius : IEcsRunSystem
+        void OnDestroy()
         {
-            public void Run(IEcsSystems systems)
+            if (_systems != null)
             {
-
+                _systems.Destroy();
+                _systems = null;
             }
-        }
 
-        public class FireballExplosion : IEcsRunSystem
-        {
-            public void Run(IEcsSystems systems)
+            if (_world != null)
             {
-
-            }
-        }
-
-        public class FireballMove : IEcsRunSystem
-        {
-            public void Run(IEcsSystems systems)
-            {
-
-            }
-        }
-
-        public class MageCooldown : IEcsRunSystem
-        {
-            public void Run(IEcsSystems systems)
-            {
-
-            }
-        }
-
-        public class MageCastFireball : IEcsRunSystem
-        {
-            public void Run(IEcsSystems systems)
-            {
-
+                _world.Destroy();
+                _world = null;
             }
         }
     }
