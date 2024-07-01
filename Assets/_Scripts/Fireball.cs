@@ -49,7 +49,7 @@ namespace OLD
 
         private Mage[] FindEnemy()
         {
-            List<Mage> result = new();
+            List<Mage> result = new List<Mage>();
 
             RectTransform targetParent = (RectTransform)Target.parent;
 
