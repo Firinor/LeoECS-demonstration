@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 626237419157234727}
   - component: {fileID: 9119922475671468929}
   - component: {fileID: 2016920544702941256}
-  - component: {fileID: -2423930121802229187}
   m_Layer: 5
   m_Name: BlueMage
   m_TagString: BlueTeam
@@ -77,22 +76,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-2423930121802229187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2591701206280567094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c9764f3d89c1de4e9c6ef0c1b3687c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FireboltPrefab: {fileID: -7757982646009985989, guid: 3f49f4597f793fb408e0a060efc62dfb, type: 3}
-  EnemyTag: RedTeam
-  castPoint: {fileID: 4958220304959286635}
-  Attack: 5
 --- !u!1 &7290383879922519587
 GameObject:
   m_ObjectHideFlags: 0

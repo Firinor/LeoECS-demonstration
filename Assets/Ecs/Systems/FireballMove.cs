@@ -13,7 +13,6 @@ namespace LeoECS
 
         EcsPool<FireballStats> fireballPool;
         EcsPool<FireballReadyToExplode> fireballToExplodePool;
-        EcsPool<Explosion> explosionPool;
 
         public void Init(IEcsSystems systems)
         {
@@ -23,7 +22,6 @@ namespace LeoECS
 
             fireballPool = world.GetPool<FireballStats>();
             fireballToExplodePool = world.GetPool<FireballReadyToExplode>();
-            explosionPool = world.GetPool<Explosion>();
         }
 
         public void Run(IEcsSystems systems)

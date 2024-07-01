@@ -25,15 +25,15 @@ namespace LeoECS
         {
             foreach (int entity in _filter)
             {
-                ref MageCooldown weapon = ref mageCooldownPool.Get(entity);
+                ref MageCooldown cooldown = ref mageCooldownPool.Get(entity);
 
-                if(weapon.CurrentCooldown <= 0)
+                if(cooldown.CurrentCooldown <= 0)
                 {
                     mageReadyToFire.Add(entity);
-                    weapon.CurrentCooldown += mageStats.Get(entity).Reattack;
+                    cooldown.CurrentCooldown += mageStats.Get(entity).Reattack;
                 }
                 else
-                    weapon.CurrentCooldown -= Time.deltaTime;
+                    cooldown.CurrentCooldown -= Time.deltaTime;
             }
         }
     }
